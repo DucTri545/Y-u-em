@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffccff; /* Màu hồng nền */
+    background-repeat: no-repeat;
+    background-size: cover; /* Kích thước nền */
+    margin: 0;
+    padding: 20px;
+    text-align: center; /* Căn giữa nội dung */
+}
+
+h1 {
+    color: #333;
+    font-size: 36px; /* Kích thước chữ lớn hơn */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 18px; /* Kích thước chữ trong nút lớn hơn */
+    cursor: pointer;
+    background-color: #ff4d4d; /* Màu đỏ */
+    color: white;
+    border: none;
+    border-radius: 15px; /* Bo tròn góc */
+    position: relative; /* Để thêm hiệu ứng */
+    overflow: hidden;
+}
+
+button:hover::after {
+    opacity: 1; /* Hiệu ứng khi hover */
+}
+
+#activityResult {
+    margin-top: 20px;
+    font-size: 20px; /* Kích thước chữ lớn hơn cho kết quả */
+    color: #007bff;
+}
