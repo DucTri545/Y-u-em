@@ -46,3 +46,22 @@ function saveActivity(activity) {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
+// Hàm lấy và hiển thị lịch sử hoạt động
+function fetchActivityLog() {
+    fetch('/activityLog')
+        .then(response => response.json())
+        .then(data => {
+            const logContainer = document.getElementById('activityLog');
+            logContainer.innerHTML = ''; // Xóa nội dung cũ
+            data.forEach(entry => {
+                const div = document.createElement('div');
+                div.innerText = entry; // Hiển thị mỗi hoạt động
+                logContainer.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Error fetching activity log:', error));
+}
+
+// Gọi hàm khi tải trang
+window.onload = fetchActivityLog;
+
