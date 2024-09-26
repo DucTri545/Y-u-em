@@ -14,15 +14,23 @@ app.get('/', (req, res) => {
 
 // Route để lưu hoạt động
 app.post('/saveActivity', (req, res) => {
-    console.log("Received save activity request"); // Thêm dòng này
     const { activity, time } = req.body;
     const log = `${activity} - ${time}\n`;
-    console.log(`Saving activity: ${log}`); // Dòng debug
     fs.appendFile('activityLog.txt', log, (err) => {
         if (err) {
             return res.status(500).send('Error saving activity');
         }
         res.send('Activity saved');
+    });
+});
+
+// Route để lấy lịch sử hoạt động
+app.get('/activityLog', (req, res) => {
+    fs.readFile('activityLog.txt', 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading activity log');
+        }
+        res.send(data.split('\n').filter(Boolean)); // Trả về danh sách hoạt động
     });
 });
 
